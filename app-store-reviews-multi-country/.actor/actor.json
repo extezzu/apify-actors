@@ -1,0 +1,35 @@
+{
+  "actorSpecification": 1,
+  "name": "app-store-reviews-multi-country",
+  "title": "App Store Reviews Scraper (Multi-Country, New-Only Mode)",
+  "description": "Get Apple App Store reviews for any app across up to ~100 country storefronts: stars, title, text, version, author, date. Filter by stars, keywords and date; schedule it to get only new reviews.",
+  "version": "1.0",
+  "buildTag": "latest",
+  "meta": { "templateId": "project_empty" },
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {
+        "overview": {
+          "title": "Reviews",
+          "transformation": { "fields": ["appName", "country", "rating", "title", "text", "appVersion", "date", "author"] },
+          "display": {
+            "component": "table",
+            "properties": {
+              "appName": { "label": "App" },
+              "country": { "label": "Country" },
+              "rating": { "label": "Stars" },
+              "title": { "label": "Title" },
+              "text": { "label": "Review" },
+              "appVersion": { "label": "Version" },
+              "date": { "label": "Date", "format": "date" },
+              "author": { "label": "Author" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

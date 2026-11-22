@@ -6,7 +6,8 @@ Small, focused, pay-per-result tools that run in the cloud on [Apify](https://ap
 |-|-|-|-|
 | **Dependency Manifest Audit (npm & PyPI)** | Reads `package.json` / `requirements.txt` (pasted, by URL or as a package list) and reports outdated, deprecated and vulnerable (OSV) packages, licenses and maintenance signals. | $3 / 1,000 dependencies | [apify.com/extezzu/dependency-manifest-audit-npm-pypi](https://apify.com/extezzu/dependency-manifest-audit-npm-pypi) |
 | **Sitemap URL Validator** | Crawls `sitemap.xml` (incl. sitemap indexes) and checks every URL: status codes, redirects, noindex, canonical mismatches, slow pages. | $2 / 1,000 URLs | [apify.com/extezzu/sitemap-url-validator](https://apify.com/extezzu/sitemap-url-validator) |
-| **Security Headers & SSL Audit** | Bulk-checks domains for certificate expiry, HTTP→HTTPS redirect, HSTS, CSP, clickjacking protection, insecure cookies; grades each site A–F. | per site checked | [apify.com/extezzu](https://apify.com/extezzu) |
+| **Security Headers & SSL Audit** | Bulk-checks domains for certificate expiry, HTTP→HTTPS redirect, HSTS, CSP, clickjacking protection, insecure cookies; grades each site A–F. | $4 / 1,000 sites | [apify.com/extezzu/security-headers-ssl-audit](https://apify.com/extezzu/security-headers-ssl-audit) |
+| **App Store Reviews (multi-country)** | Apple App Store reviews for any app across up to ~100 storefronts; star/keyword/date filters; new-only mode for scheduled monitoring. | $0.40 / 1,000 reviews | [apify.com/extezzu/app-store-reviews-multi-country](https://apify.com/extezzu/app-store-reviews-multi-country) |
 
 ## Why use the hosted version?
 - Scheduled runs (daily/weekly) with email or Slack alerts when something breaks.

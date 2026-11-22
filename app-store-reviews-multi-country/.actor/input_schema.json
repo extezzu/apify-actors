@@ -1,0 +1,52 @@
+{
+  "title": "App Store Reviews (multi-country)",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "apps": {
+      "title": "Apps",
+      "type": "array",
+      "description": "App Store URLs (https://apps.apple.com/us/app/.../id284882215), numeric app ids, or app names (the first search match is used).",
+      "editor": "stringList",
+      "prefill": ["https://apps.apple.com/us/app/duolingo-language-lessons/id570060128"]
+    },
+    "countries": {
+      "title": "Countries (storefronts)",
+      "type": "array",
+      "description": "Two-letter country codes such as us, gb, de, ua. Use \"top\" for 18 large markets or \"all\" for ~100 storefronts. Apple serves up to 500 latest reviews per storefront, so more countries = more reviews.",
+      "editor": "stringList",
+      "prefill": ["us", "gb"],
+      "default": ["us"]
+    },
+    "sortBy": {
+      "title": "Sort",
+      "type": "string",
+      "editor": "select",
+      "enum": ["mostrecent", "mosthelpful"],
+      "enumTitles": ["Most recent", "Most helpful"],
+      "default": "mostrecent"
+    },
+    "sinceDate": {
+      "title": "Only reviews since (date)",
+      "type": "string",
+      "description": "Optional. YYYY-MM-DD. Use with a daily or weekly schedule to get only new reviews and pay only for those.",
+      "editor": "textfield"
+    },
+    "minRating": { "title": "Minimum stars", "type": "integer", "minimum": 1, "maximum": 5, "default": 1 },
+    "maxRating": { "title": "Maximum stars", "type": "integer", "minimum": 1, "maximum": 5, "default": 5, "description": "Set to 2 to collect only negative reviews (bug reports, churn reasons)." },
+    "keywords": {
+      "title": "Keywords filter",
+      "type": "array",
+      "description": "Optional. Keep only reviews whose title or text contains any of these words (case-insensitive), e.g. crash, refund, subscription.",
+      "editor": "stringList"
+    },
+    "maxReviewsPerApp": {
+      "title": "Max reviews per app",
+      "type": "integer",
+      "description": "Optional cap. 0 = no cap.",
+      "minimum": 0,
+      "default": 0
+    }
+  },
+  "required": ["apps"]
+}

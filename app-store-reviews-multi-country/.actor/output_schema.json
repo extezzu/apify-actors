@@ -1,0 +1,18 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Output",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Results",
+      "description": "One row per review, in the default dataset.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Per-app totals by country and star rating (OUTPUT record in the key-value store).",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT"
+    }
+  }
+}
