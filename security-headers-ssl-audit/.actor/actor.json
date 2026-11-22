@@ -1,0 +1,35 @@
+{
+  "actorSpecification": 1,
+  "name": "security-headers-ssl-audit",
+  "title": "Security Headers & SSL Certificate Audit (bulk, graded A-F)",
+  "description": "Bulk-check domains for SSL certificate expiry and validity, HTTP to HTTPS redirect, HSTS, CSP, clickjacking protection, insecure cookies and version leaks. Each site gets a 0-100 score and A-F grade.",
+  "version": "1.0",
+  "buildTag": "latest",
+  "meta": { "templateId": "project_empty" },
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {
+        "overview": {
+          "title": "Site security overview",
+          "transformation": { "fields": ["host", "grade", "score", "severity", "certDaysLeft", "httpRedirectsToHttps", "httpsStatus", "issues"] },
+          "display": {
+            "component": "table",
+            "properties": {
+              "host": { "label": "Host" },
+              "grade": { "label": "Grade" },
+              "score": { "label": "Score" },
+              "severity": { "label": "Severity" },
+              "certDaysLeft": { "label": "Cert days left" },
+              "httpRedirectsToHttps": { "label": "HTTP→HTTPS" },
+              "httpsStatus": { "label": "Status" },
+              "issues": { "label": "Issues" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

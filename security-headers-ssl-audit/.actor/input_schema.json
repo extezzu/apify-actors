@@ -1,0 +1,36 @@
+{
+  "title": "Security Headers & SSL Audit input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "sites": {
+      "title": "Domains or URLs",
+      "type": "array",
+      "description": "Domains (example.com) or full URLs to audit. Only audit sites you own or have permission to test.",
+      "editor": "stringList",
+      "prefill": ["apify.com", "crawlee.dev"]
+    },
+    "certWarnDays": {
+      "title": "Warn when certificate expires within (days)",
+      "type": "integer",
+      "description": "Flags certificates expiring sooner than this.",
+      "default": 21,
+      "minimum": 1
+    },
+    "concurrency": {
+      "title": "Concurrency",
+      "type": "integer",
+      "description": "Sites checked in parallel (1-10).",
+      "default": 5,
+      "minimum": 1,
+      "maximum": 10
+    },
+    "onlyReportProblems": {
+      "title": "Only report sites with problems",
+      "type": "boolean",
+      "description": "Skip rows for sites with no warnings or errors (they are still checked and billed).",
+      "default": false
+    }
+  },
+  "required": ["sites"]
+}

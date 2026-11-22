@@ -1,0 +1,68 @@
+{
+  "actorSpecification": 1,
+  "name": "sitemap-url-validator",
+  "title": "Sitemap URL Validator: Find Broken, Redirected & Noindex URLs in Sitemaps",
+  "description": "Reads a site's sitemap(s) and checks every URL: HTTP status, redirects, noindex, canonical mismatches, robots.txt blocks and slow pages. Polite, robots.txt-aware.",
+  "version": "1.0",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "project_empty"
+  },
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {
+        "overview": {
+          "title": "Sitemap URL problems",
+          "transformation": {
+            "fields": [
+              "url",
+              "severity",
+              "httpStatus",
+              "finalUrl",
+              "redirectCount",
+              "noindex",
+              "canonicalUrl",
+              "responseTimeMs",
+              "issues"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {
+              "url": {
+                "label": "URL"
+              },
+              "severity": {
+                "label": "Severity"
+              },
+              "httpStatus": {
+                "label": "Status"
+              },
+              "finalUrl": {
+                "label": "Final URL"
+              },
+              "redirectCount": {
+                "label": "Redirects"
+              },
+              "noindex": {
+                "label": "Noindex"
+              },
+              "canonicalUrl": {
+                "label": "Canonical"
+              },
+              "responseTimeMs": {
+                "label": "Time (ms)"
+              },
+              "issues": {
+                "label": "Issues"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

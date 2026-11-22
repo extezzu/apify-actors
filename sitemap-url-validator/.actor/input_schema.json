@@ -1,0 +1,64 @@
+{
+  "title": "Sitemap URL Validator input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "sites": {
+      "title": "Sites or sitemap URLs",
+      "type": "array",
+      "description": "Website home pages (https://example.com) or direct sitemap URLs (https://example.com/sitemap.xml), up to 50. For a home page the Actor reads robots.txt for Sitemap: entries and falls back to /sitemap.xml. Only URLs on the same host as the site are checked. Only check websites you own or are allowed to test.",
+      "editor": "stringList",
+      "prefill": [
+        "https://crawlee.dev"
+      ],
+      "maxItems": 50
+    },
+    "maxUrlsPerSite": {
+      "title": "Max URLs per site",
+      "type": "integer",
+      "description": "Maximum number of sitemap URLs to check per site (a cost safeguard).",
+      "default": 100,
+      "minimum": 1,
+      "maximum": 5000
+    },
+    "maxUrlsTotal": {
+      "title": "Max URLs in total",
+      "type": "integer",
+      "description": "Maximum number of URLs checked across the whole run.",
+      "default": 500,
+      "minimum": 1,
+      "maximum": 20000
+    },
+    "respectRobotsTxt": {
+      "title": "Respect robots.txt",
+      "type": "boolean",
+      "description": "Skip fetching pages that robots.txt disallows for generic crawlers (User-agent: *). They are reported as 'blocked-by-robots-txt' and are not charged. Keep this enabled unless you own the site.",
+      "default": true
+    },
+    "slowThresholdMs": {
+      "title": "Slow response threshold (ms)",
+      "type": "integer",
+      "description": "Flag pages that take longer than this to respond.",
+      "default": 2000,
+      "minimum": 100,
+      "maximum": 30000
+    },
+    "concurrency": {
+      "title": "Concurrency",
+      "type": "integer",
+      "description": "Parallel requests per site (max 10). Each worker also waits at least 300 ms between requests, and robots.txt Crawl-delay is honoured, so the load on a target stays low.",
+      "default": 3,
+      "minimum": 1,
+      "maximum": 10
+    },
+    "onlyReportProblems": {
+      "title": "Only output URLs with problems",
+      "type": "boolean",
+      "description": "Skip clean URLs in the dataset (they are still counted in the summary). Charging still applies per URL checked.",
+      "default": false
+    }
+  },
+  "required": [
+    "sites"
+  ]
+}

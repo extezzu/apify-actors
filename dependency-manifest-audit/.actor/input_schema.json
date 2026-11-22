@@ -1,0 +1,64 @@
+{
+  "title": "Dependency Manifest Audit input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "packageJson": {
+      "title": "package.json contents",
+      "type": "string",
+      "description": "Paste the full contents of a package.json file (dependencies, devDependencies, optionalDependencies are read).",
+      "editor": "textarea",
+      "prefill": "{\n  \"name\": \"example-app\",\n  \"dependencies\": {\n    \"express\": \"^4.17.1\",\n    \"lodash\": \"4.17.15\",\n    \"request\": \"^2.88.0\"\n  },\n  \"devDependencies\": {\n    \"jest\": \"^26.6.3\"\n  }\n}"
+    },
+    "requirementsTxt": {
+      "title": "requirements.txt contents",
+      "type": "string",
+      "description": "Paste the contents of a requirements.txt file. Pinned (==) and range specifiers are supported; -r, -e, URL and VCS lines are skipped.",
+      "editor": "textarea"
+    },
+    "manifestUrls": {
+      "title": "Manifest URLs (raw files)",
+      "type": "array",
+      "description": "Optional. Public URLs of RAW package.json or requirements.txt files (for example raw.githubusercontent.com links). The file type is detected from the file name.",
+      "editor": "stringList",
+      "prefill": [],
+      "maxItems": 20
+    },
+    "packages": {
+      "title": "Extra packages",
+      "type": "array",
+      "description": "Optional list of extra packages to check, one per entry, such as 'npm:express@4.17.1' or 'pypi:requests==2.25.0'. Version is optional.",
+      "editor": "stringList",
+      "prefill": [],
+      "maxItems": 2000
+    },
+    "includeDevDependencies": {
+      "title": "Include devDependencies",
+      "type": "boolean",
+      "description": "Also audit devDependencies and optionalDependencies from package.json.",
+      "default": true
+    },
+    "checkVulnerabilities": {
+      "title": "Check known vulnerabilities (OSV.dev)",
+      "type": "boolean",
+      "description": "Look up known vulnerabilities for the requested version using the free OSV.dev database. Only runs when a concrete version can be determined.",
+      "default": true
+    },
+    "staleAfterDays": {
+      "title": "Stale after (days)",
+      "type": "integer",
+      "description": "Flag a package as stale when its latest release is older than this many days.",
+      "default": 730,
+      "minimum": 30,
+      "maximum": 5000
+    },
+    "maxDependencies": {
+      "title": "Maximum dependencies",
+      "type": "integer",
+      "description": "Safety cap on the number of dependencies analysed (and charged) in one run.",
+      "default": 200,
+      "minimum": 1,
+      "maximum": 2000
+    }
+  }
+}

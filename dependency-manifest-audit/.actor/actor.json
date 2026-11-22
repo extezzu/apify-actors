@@ -1,0 +1,80 @@
+{
+  "actorSpecification": 1,
+  "name": "dependency-manifest-audit",
+  "title": "Dependency Manifest Audit: package.json & requirements.txt Health Check",
+  "description": "Paste a package.json or requirements.txt and get a per-dependency report: outdated, deprecated, stale, license, known vulnerabilities and a risk score.",
+  "version": "1.0",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "project_empty"
+  },
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {
+        "overview": {
+          "title": "Dependencies by risk",
+          "transformation": {
+            "fields": [
+              "ecosystem",
+              "name",
+              "requested",
+              "latestVersion",
+              "outdated",
+              "deprecated",
+              "license",
+              "daysSinceLastPublish",
+              "vulnerabilityCount",
+              "riskScore",
+              "riskLevel",
+              "riskFlags"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {
+              "name": {
+                "label": "Package"
+              },
+              "ecosystem": {
+                "label": "Eco"
+              },
+              "requested": {
+                "label": "Requested"
+              },
+              "latestVersion": {
+                "label": "Latest"
+              },
+              "outdated": {
+                "label": "Outdated"
+              },
+              "deprecated": {
+                "label": "Deprecated"
+              },
+              "license": {
+                "label": "License"
+              },
+              "daysSinceLastPublish": {
+                "label": "Days since release"
+              },
+              "vulnerabilityCount": {
+                "label": "Vulns"
+              },
+              "riskScore": {
+                "label": "Risk score"
+              },
+              "riskLevel": {
+                "label": "Risk"
+              },
+              "riskFlags": {
+                "label": "Flags"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

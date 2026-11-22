@@ -1,0 +1,11 @@
+{
+  "name": "security-headers-ssl-audit",
+  "version": "1.0.0",
+  "description": "Apify Actor: security-headers-ssl-audit",
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": { "start": "node src/main.js" },
+  "dependencies": { "apify": "^3.8.0" },
+  "engines": { "node": ">=20" },
+  "license": "ISC"
+}
